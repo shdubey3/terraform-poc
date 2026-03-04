@@ -1,6 +1,6 @@
 # Terraform configuration for AWS VPC with Subnets and Route Tables
 # This is the entry point for the Terraform configuration.
-# 
+#
 # Project Structure:
 # - provider.tf: AWS provider configuration
 # - variables.tf: Input variables and default values
