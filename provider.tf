@@ -8,6 +8,10 @@ terraform {
   }
 }
 
+# AWS Provider Configuration
+# Credentials are automatically loaded from ~/.aws/credentials file
+# Set the profile to match the one in your credentials file, or leave empty to use [default]
 provider "aws" {
-  region = var.aws_region
+  region  = var.aws_region
+  profile = "default"  # Change to your profile name if using a specific profile
 }
