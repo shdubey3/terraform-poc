@@ -1,0 +1,68 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_internet_gateway.main (expand)" [label = "aws_internet_gateway.main", shape = "box"]
+		"[root] aws_route_table.subnet_1 (expand)" [label = "aws_route_table.subnet_1", shape = "box"]
+		"[root] aws_route_table.subnet_2 (expand)" [label = "aws_route_table.subnet_2", shape = "box"]
+		"[root] aws_route_table_association.subnet_1 (expand)" [label = "aws_route_table_association.subnet_1", shape = "box"]
+		"[root] aws_route_table_association.subnet_2 (expand)" [label = "aws_route_table_association.subnet_2", shape = "box"]
+		"[root] aws_subnet.subnet_1 (expand)" [label = "aws_subnet.subnet_1", shape = "box"]
+		"[root] aws_subnet.subnet_2 (expand)" [label = "aws_subnet.subnet_2", shape = "box"]
+		"[root] aws_vpc.main (expand)" [label = "aws_vpc.main", shape = "box"]
+		"[root] provider[\"registry.opentofu.org/hashicorp/aws\"]" [label = "provider[\"registry.opentofu.org/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.availability_zone_1" [label = "var.availability_zone_1", shape = "note"]
+		"[root] var.availability_zone_2" [label = "var.availability_zone_2", shape = "note"]
+		"[root] var.aws_region" [label = "var.aws_region", shape = "note"]
+		"[root] var.environment" [label = "var.environment", shape = "note"]
+		"[root] var.subnet_1_cidr" [label = "var.subnet_1_cidr", shape = "note"]
+		"[root] var.subnet_2_cidr" [label = "var.subnet_2_cidr", shape = "note"]
+		"[root] var.vpc_cidr" [label = "var.vpc_cidr", shape = "note"]
+		"[root] aws_internet_gateway.main (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_route_table.subnet_1 (expand)" -> "[root] aws_internet_gateway.main (expand)"
+		"[root] aws_route_table.subnet_2 (expand)" -> "[root] aws_internet_gateway.main (expand)"
+		"[root] aws_route_table_association.subnet_1 (expand)" -> "[root] aws_route_table.subnet_1 (expand)"
+		"[root] aws_route_table_association.subnet_1 (expand)" -> "[root] aws_subnet.subnet_1 (expand)"
+		"[root] aws_route_table_association.subnet_2 (expand)" -> "[root] aws_route_table.subnet_2 (expand)"
+		"[root] aws_route_table_association.subnet_2 (expand)" -> "[root] aws_subnet.subnet_2 (expand)"
+		"[root] aws_subnet.subnet_1 (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_subnet.subnet_1 (expand)" -> "[root] var.availability_zone_1 (expand, reference)"
+		"[root] aws_subnet.subnet_1 (expand)" -> "[root] var.subnet_1_cidr (expand, reference)"
+		"[root] aws_subnet.subnet_2 (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_subnet.subnet_2 (expand)" -> "[root] var.availability_zone_2 (expand, reference)"
+		"[root] aws_subnet.subnet_2 (expand)" -> "[root] var.subnet_2_cidr (expand, reference)"
+		"[root] aws_vpc.main (expand)" -> "[root] provider[\"registry.opentofu.org/hashicorp/aws\"]"
+		"[root] aws_vpc.main (expand)" -> "[root] var.environment (expand, reference)"
+		"[root] aws_vpc.main (expand)" -> "[root] var.vpc_cidr (expand, reference)"
+		"[root] output.internet_gateway_id (expand)" -> "[root] aws_internet_gateway.main (expand)"
+		"[root] output.route_table_1_id (expand)" -> "[root] aws_route_table.subnet_1 (expand)"
+		"[root] output.route_table_2_id (expand)" -> "[root] aws_route_table.subnet_2 (expand)"
+		"[root] output.subnet_1_cidr (expand)" -> "[root] aws_subnet.subnet_1 (expand)"
+		"[root] output.subnet_1_id (expand)" -> "[root] aws_subnet.subnet_1 (expand)"
+		"[root] output.subnet_2_cidr (expand)" -> "[root] aws_subnet.subnet_2 (expand)"
+		"[root] output.subnet_2_id (expand)" -> "[root] aws_subnet.subnet_2 (expand)"
+		"[root] output.vpc_cidr (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] output.vpc_id (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] provider[\"registry.opentofu.org/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.subnet_1 (expand)"
+		"[root] provider[\"registry.opentofu.org/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.subnet_2 (expand)"
+		"[root] provider[\"registry.opentofu.org/hashicorp/aws\"]" -> "[root] var.aws_region (expand, reference)"
+		"[root] root" -> "[root] output.internet_gateway_id (expand)"
+		"[root] root" -> "[root] output.route_table_1_id (expand)"
+		"[root] root" -> "[root] output.route_table_2_id (expand)"
+		"[root] root" -> "[root] output.subnet_1_cidr (expand)"
+		"[root] root" -> "[root] output.subnet_1_id (expand)"
+		"[root] root" -> "[root] output.subnet_2_cidr (expand)"
+		"[root] root" -> "[root] output.subnet_2_id (expand)"
+		"[root] root" -> "[root] output.vpc_cidr (expand)"
+		"[root] root" -> "[root] output.vpc_id (expand)"
+		"[root] root" -> "[root] provider[\"registry.opentofu.org/hashicorp/aws\"] (close)"
+		"[root] var.availability_zone_1 (expand, reference)" -> "[root] var.availability_zone_1"
+		"[root] var.availability_zone_2 (expand, reference)" -> "[root] var.availability_zone_2"
+		"[root] var.aws_region (expand, reference)" -> "[root] var.aws_region"
+		"[root] var.environment (expand, reference)" -> "[root] var.environment"
+		"[root] var.subnet_1_cidr (expand, reference)" -> "[root] var.subnet_1_cidr"
+		"[root] var.subnet_2_cidr (expand, reference)" -> "[root] var.subnet_2_cidr"
+		"[root] var.vpc_cidr (expand, reference)" -> "[root] var.vpc_cidr"
+	}
+}
+
