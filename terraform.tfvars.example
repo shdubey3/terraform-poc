@@ -1,0 +1,21 @@
+# Example Terraform Variables File
+# Copy this file to terraform.tfvars and update the values for your environment
+# NOTE: terraform.tfvars should NOT be committed to git (it may contain sensitive values)
+# Use this .example file as a template for other developers
+
+# AWS Region
+aws_region = "us-west-1"
+
+# Environment name (e.g., dev, staging, prod)
+environment = "dev"
+
+# VPC Configuration
+vpc_cidr = "10.0.0.0/16"
+
+# Subnet Configuration
+subnet_1_cidr = "10.0.1.0/24"
+subnet_2_cidr = "10.0.2.0/24"
+
+# Availability Zones
+availability_zone_1 = "us-west-1a"
+availability_zone_2 = "us-west-1c"
