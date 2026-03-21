@@ -35,7 +35,7 @@ resource "aws_eip" "nat" {
 
 resource "aws_nat_gateway" "this" {
   allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.subnet_2.id  # Attach to private subnet
+  subnet_id     = aws_subnet.subnet_1.id  # Fix: NAT Gateway must be in public subnet
 
   tags = {
     Name        = "${var.environment}-nat-gw"
